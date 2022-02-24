@@ -1,5 +1,5 @@
 import styles from '../styles/MoodHistory.module.css'
-import Footer from '../components/footer'
+import { Footer } from '../components/Footer'
 
 const MoodHistory = () => {
   return (

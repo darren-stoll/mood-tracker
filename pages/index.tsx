@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Button from '../components/button'
+import { Button } from '../components/Button'
 
 const Home: NextPage = () => {
   return (
@@ -18,10 +18,10 @@ const Home: NextPage = () => {
           <Image src="/../public/images/pexels-chevanon-photography-1108099.jpg" alt="Find happiness" layout='fill' objectFit="contain" />
         </div>
         <div>
-          <Button value="NEW" link="moodEntry" />
+          <Button value="NEW" link="MoodEntry" />
         </div>
         <div>
-          <Button value="HISTORY" link="history" />
+          <Button value="HISTORY" link="MoodHistory" />
         </div>
       </main>
 

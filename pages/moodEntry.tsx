@@ -1,5 +1,5 @@
 import styles from '../styles/MoodEntry.module.css'
-import Footer from '../components/footer'
+import { Footer } from '../components/Footer'
 
 const MoodEntry = () => {
   return (
