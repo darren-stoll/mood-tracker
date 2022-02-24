@@ -1,11 +1,9 @@
 import Link from 'next/link'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <Link href="../">
-      Back to main
+      <a>Back to main</a>
     </Link>
   )
 }
-
-export default Footer
