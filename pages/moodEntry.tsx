@@ -3,6 +3,10 @@ import { Footer } from '../components/Footer'
 import { useState } from 'react'
 import Link from 'next/link'
 
+const addToStorage = (mood: string, comment: string) => {
+  localStorage.setItem(new Date().getTime().toString(), JSON.stringify({mood, comment}))
+}
+
 const MoodEntry = () => {
   // State that holds selected mood
   const [mood, setMood] = useState('');
@@ -25,7 +29,7 @@ const MoodEntry = () => {
           {/* Have it link to a confirmation window, which redirects to history after 5 seconds */}
           <div className={styles.submit}>
             <Link href="/">
-              <a className={styles.submitAnchor}>Submit</a>
+              <a className={styles.submitAnchor} onClick={() => addToStorage(mood, comment)}>Submit</a>
             </Link>
           </div>
         </div>
