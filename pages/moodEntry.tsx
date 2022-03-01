@@ -8,6 +8,7 @@ const MoodEntry = () => {
   // State that holds selected mood
   const [mood, setMood] = useState('');
   const [comment, setComment] = useState('');
+  const [error, setError] = useState('');
 
   const addToStorage = () => {
     localStorage.setItem(new Date().getTime().toString(), JSON.stringify({mood, comment}))
@@ -15,8 +16,14 @@ const MoodEntry = () => {
 
   const handleFormSubmission = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    addToStorage();
-    Router.push("/MoodHistory");
+    if (mood !== '') {
+      setError('');
+      addToStorage();
+      Router.push("/MoodHistory");
+    }
+    else {
+      setError('Mood emoji not selected.');
+    }
   }
 
   return (
@@ -37,6 +44,7 @@ const MoodEntry = () => {
             <input className={styles.submitAnchor} type='submit' value='Submit' />
           </div>
         </form>
+        <div className={styles.errorField}>{error}</div>
       </main>
       <Footer />
     </div>
