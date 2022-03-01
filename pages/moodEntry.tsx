@@ -16,7 +16,7 @@ const MoodEntry = () => {
   const handleFormSubmission = (e: React.SyntheticEvent) => {
     e.preventDefault();
     addToStorage();
-    Router.push("/");
+    Router.push("/MoodHistory");
   }
 
   return (
@@ -25,11 +25,11 @@ const MoodEntry = () => {
         <form onSubmit={handleFormSubmission}>
           <div className={styles.entry}>
             <div className={styles.emojis}>
-              <div onClick={() => setMood('overjoyed')}>😃</div>
-              <div onClick={() => setMood('confident')}>😎</div>
-              <div onClick={() => setMood('apathetic')}>😐</div>
-              <div onClick={() => setMood('despairing')}>☹️</div>
-              <div onClick={() => setMood('angry')}>😠</div>
+              <div onClick={() => setMood('😃')}>😃</div>
+              <div onClick={() => setMood('😎')}>😎</div>
+              <div onClick={() => setMood('😐')}>😐</div>
+              <div onClick={() => setMood('☹️')}>☹️</div>
+              <div onClick={() => setMood('😠')}>😠</div>
             </div>
             <div className={styles.commentBox}>
               <textarea placeholder="Reason/Cause" onChange={e => setComment(e.target.value)}></textarea>
