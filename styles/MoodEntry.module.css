@@ -37,3 +37,7 @@
   border: black 2px solid;
   border-radius: 3px;
 }
+
+.errorField {
+  color: red;
+}
