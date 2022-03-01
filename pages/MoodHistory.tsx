@@ -29,6 +29,13 @@ const allStorage = () => {
     }
   }
 
+  // Sort the moods by timestamp
+  moods.sort((a,b):number => {
+    if (a.time > b.time) return -1;
+    else if (b.time > a.time) return 1;
+    return 0;
+  })
+
   return moods;
 }
 
