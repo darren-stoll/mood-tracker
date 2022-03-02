@@ -10,12 +10,26 @@ type EmojiButtonProps = {
 
 const EmojiButton:FC<EmojiButtonProps> = ({ emoji, setMood }) => {
 
-  const changeBackgroundOnHover = (e:any) => {
-    e.target.style.background = 'lightblue';
+  const changeBackgroundOnHover = (e: any) => {
+    if (!e.target.className.includes(styles.clickedEmoji)) e.target.style.background = 'lightblue';
   }
 
-  const changeBackgroundOffHover = (e:any) => {
-    e.target.style.background = 'none';
+  const changeBackgroundOffHover = (e: any) => {
+    // console.log(e.target.className);
+    if (!e.target.className.includes(styles.clickedEmoji)) e.target.style.background = 'none';
+  }
+
+  const changeBackgroundOnClick = (e: any) => {
+    // Get a list of currently clicked elements and erase the clicked styling
+    var alreadyClickedOnes = Array.from(document.getElementsByClassName(styles.clickedEmoji) as HTMLCollectionOf<HTMLElement>)
+    if (alreadyClickedOnes.length > 0) {
+      alreadyClickedOnes[0].className = styles.emoji;
+      (alreadyClickedOnes[0]).style.background = 'none';
+    }
+
+    // Add the className to the list of classes for the element that is clicked
+    e.target.className += " " + styles.clickedEmoji
+    e.target.style.background = '#1cb2f5';
   }
 
   return (
@@ -23,7 +37,11 @@ const EmojiButton:FC<EmojiButtonProps> = ({ emoji, setMood }) => {
       className={styles.emoji} 
       onMouseOver={changeBackgroundOnHover} 
       onMouseOut={changeBackgroundOffHover} 
-      onClick={() => setMood(emoji)}>
+      onClick={(e) => {
+        setMood(emoji);
+        changeBackgroundOnClick(e);
+      }}
+      >
         {emoji}
     </div>
   )

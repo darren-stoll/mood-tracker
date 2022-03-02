@@ -17,6 +17,14 @@
   cursor: pointer;
 }
 
+.clickedEmoji {
+  padding: 10px;
+  font-size: 24pt;
+  border-radius: 100%;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
 .commentBox {
   max-width: 400px;
   max-height: 300px;
