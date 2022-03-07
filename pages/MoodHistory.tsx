@@ -1,7 +1,8 @@
 import styles from '../styles/MoodHistory.module.css'
 import { Footer } from '../components/Footer'
+import { FC } from 'react'
 
-type mood = {
+type MoodProps = {
   time: number,
   mood: string,
   comment: string
@@ -17,7 +18,7 @@ const allStorage = () => {
   }
 
   // Filter the moods from localStorage into its own array
-  let moods:mood[] = [];
+  let moods:MoodProps[] = [];
   for (let i = 0; i < tempLocalStorage.length; i++) {
     if (Number(tempLocalStorage[i].time)) {
       let objectifyItem = JSON.parse(tempLocalStorage[i].item);
@@ -39,21 +40,42 @@ const allStorage = () => {
   return moods;
 }
 
+
+
+const MoodListEntry:FC<MoodProps> = ({time, mood, comment}) => {
+
+  return (
+    <div>
+      {new Date(time)
+        .toLocaleDateString("en-US",{ 
+          weekday: "short", 
+          year: "2-digit", 
+          month: "2-digit", 
+          day: "2-digit",
+          hour: "numeric",
+          minute: "numeric"
+        })
+        .toString()
+      } 
+      {" - "}
+      {mood}
+      {" - "}
+      {comment}
+    </div>
+  )
+}
+
 const MoodHistory = () => {
   let moods = allStorage();
 
   return (
     <div className="container">
       <main className="main">
-        {moods.map(m => (
-          <div key={m.time}>
-            {new Date(m.time).toString()}
-            {" - "}
-            {m.mood}
-            {" - "}
-            {m.comment}
-          </div>
-        ))}
+        <div className="entries">
+          {moods.map(m => (
+            <MoodListEntry key={m.time} time={m.time} mood={m.mood} comment={m.comment} />
+          ))}
+        </div>
       </main>
       <Footer />
     </div>
