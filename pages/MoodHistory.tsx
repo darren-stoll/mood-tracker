@@ -45,22 +45,23 @@ const allStorage = () => {
 const MoodListEntry:FC<MoodProps> = ({time, mood, comment}) => {
 
   return (
-    <div>
-      {new Date(time)
-        .toLocaleDateString("en-US",{ 
-          weekday: "short", 
-          year: "2-digit", 
-          month: "2-digit", 
-          day: "2-digit",
-          hour: "numeric",
-          minute: "numeric"
-        })
-        .toString()
-      } 
-      {" - "}
-      {mood}
-      {" - "}
-      {comment}
+    <div className={styles.entry}>
+      <div className={styles.datemood}>
+        {new Date(time)
+          .toLocaleDateString("en-US",{ 
+            weekday: "short", 
+            year: "2-digit", 
+            month: "2-digit", 
+            day: "2-digit",
+            hour: "numeric",
+            minute: "numeric"
+          })
+          .toString()
+        } 
+        {" - "}
+        {mood}
+      </div>
+      {comment !== "" ? comment : ""}
     </div>
   )
 }
