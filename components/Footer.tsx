@@ -1,9 +1,17 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export const Footer = () => {
+  const { asPath } = useRouter()
+
   return (
-    <Link href="../">
-      <a style={{paddingBottom:"50px"}}>Back to main</a>
-    </Link>
+    <>
+      {asPath !== "/" ? 
+      <Link href="../">
+        <a style={{marginBottom:"50px"}}>Back to main</a>
+      </Link>
+      : ""}
+      <p style={{fontSize:"8pt",color:"gray"}}>Made by: Darren Stoll</p>
+    </>
   )
 }
