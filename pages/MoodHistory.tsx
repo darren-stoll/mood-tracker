@@ -1,6 +1,7 @@
 import styles from '../styles/MoodHistory.module.css'
 import { Footer } from '../components/Footer'
 import { FC } from 'react'
+import { format, compareDesc } from 'date-fns'
 
 type MoodProps = {
   time: number,
@@ -32,9 +33,7 @@ const allStorage = () => {
 
   // Sort the moods by timestamp
   moods.sort((a,b) => {
-    if (a.time > b.time) return -1;
-    else if (b.time > a.time) return 1;
-    return 0;
+    return compareDesc(a.time, b.time)
   })
 
   return moods;
@@ -43,21 +42,10 @@ const allStorage = () => {
 
 
 const MoodListEntry:FC<MoodProps> = ({time, mood, comment}) => {
-
   return (
     <div className={styles.entry}>
       <div className={styles.datemood}>
-        {new Date(time)
-          .toLocaleDateString("en-US",{ 
-            weekday: "short", 
-            year: "2-digit", 
-            month: "2-digit", 
-            day: "2-digit",
-            hour: "numeric",
-            minute: "numeric"
-          })
-          .toString()
-        } 
+        {format(new Date(time), "EEE, MM/dd/yy, h:mm aa")}
         {" - "}
         {mood}
       </div>

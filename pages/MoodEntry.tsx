@@ -54,7 +54,7 @@ const MoodEntry = () => {
   const [error, setError] = useState<string | null>();
 
   const addToStorage = () => {
-    localStorage.setItem(new Date().getTime().toString(), JSON.stringify({mood, comment}))
+    localStorage.setItem(new Date().toISOString(), JSON.stringify({mood, comment}))
   }
 
   const handleFormSubmission = (e: React.SyntheticEvent) => {
