@@ -10,18 +10,18 @@ type MoodProps = {
 
 const allStorage = () => {
   // Store the localStorage into an array
-  let tempLocalStorage:any = []
-  let keys = Object.keys(localStorage);
+  const tempLocalStorage:any = []
+  const keys = Object.keys(localStorage);
   for (let i = 0; i < keys.length; i++) {
-    let item = localStorage.getItem(keys[i]);
+    const item = localStorage.getItem(keys[i]);
     tempLocalStorage.push({time: keys[i], item})
   }
 
   // Filter the moods from localStorage into its own array
-  let moods:MoodProps[] = [];
+  const moods:MoodProps[] = [];
   for (let i = 0; i < tempLocalStorage.length; i++) {
     if (Number(tempLocalStorage[i].time)) {
-      let objectifyItem = JSON.parse(tempLocalStorage[i].item);
+      const objectifyItem = JSON.parse(tempLocalStorage[i].item);
       moods.push({
         time: parseInt(tempLocalStorage[i].time),
         mood: objectifyItem.mood,
@@ -67,7 +67,7 @@ const MoodListEntry:FC<MoodProps> = ({time, mood, comment}) => {
 }
 
 const MoodHistory = () => {
-  let moods = allStorage();
+  const moods = allStorage();
 
   return (
     <div className="container">
