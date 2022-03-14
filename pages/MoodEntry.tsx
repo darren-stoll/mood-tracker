@@ -51,7 +51,7 @@ const MoodEntry = () => {
   // State that holds selected mood
   const [mood, setMood] = useState('');
   const [comment, setComment] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>();
 
   const addToStorage = () => {
     localStorage.setItem(new Date().getTime().toString(), JSON.stringify({mood, comment}))
@@ -87,7 +87,7 @@ const MoodEntry = () => {
             <input className={styles.submitAnchor} type='submit' value='Submit' />
           </div>
         </form>
-        <div className={styles.errorField}>{error}</div>
+        {error && <div className={styles.errorField}>{error}</div>}
       </main>
       <Footer />
     </div>
