@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import styles from '../styles/Footer.module.css'
 
 export const Footer = () => {
   const { asPath } = useRouter()
@@ -8,10 +9,10 @@ export const Footer = () => {
     <>
       {asPath !== "/" ? 
       <Link href="../">
-        <a style={{marginBottom:"50px"}}>Back to main</a>
+        <a className={styles.return}>Back to main</a>
       </Link>
       : ""}
-      <p style={{fontSize:"8pt",color:"gray"}}>Made by: Darren Stoll</p>
+      <p className={styles.madeby}>Made by: Darren Stoll</p>
     </>
   )
 }
