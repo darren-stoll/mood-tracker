@@ -1,0 +1,9 @@
+.image {
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+.image h2 {
+  text-align: center;
+}
