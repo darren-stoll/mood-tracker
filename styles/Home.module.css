@@ -8,9 +8,8 @@
 
 .image {
   padding-bottom:"20px";
-  position:"relative";
-  height:"400px";
-  width:"300px";
+  max-height:"400px";
+  max-width:"300px";
 }
 
 .links {
