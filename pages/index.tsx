@@ -20,8 +20,8 @@ const Home: NextPage = () => {
         <AnimalImage />
         <p>This mood tracker uses Next.js for the frontend and local storage for the backend. Track your mood with timestamps and comments from time to time.</p>
         <div className={styles.links}>
-          <Button value="NEW" link="MoodEntry" />
-          <Button value="HISTORY" link="MoodHistory" />
+          <Button value="NEW ENTRY" link="MoodEntry" />
+          <Button value="MOOD HISTORY" link="MoodHistory" />
         </div>
       </main>
 
