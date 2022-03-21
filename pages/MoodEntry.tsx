@@ -84,7 +84,7 @@ const MoodEntry = () => {
             <div className={styles.commentBox}>
               <textarea placeholder="Reason/Cause" onChange={e => setComment(e.target.value)}></textarea>
             </div>
-            <input className={styles.submitAnchor} type='submit' value='Submit' />
+            <input className={styles.submitAnchor} type='submit' value='SUBMIT' />
           </div>
         </form>
         {error && <div className={styles.errorField}>{error}</div>}
