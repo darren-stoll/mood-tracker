@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FC } from 'react'
+import styles from '../styles/Button.module.css'
 
 type ButtonProps = {
   value: string,
@@ -9,7 +10,7 @@ type ButtonProps = {
 export const Button:FC<ButtonProps> = ({ value, link }) => {
   return (
     <Link href={link}>
-      <a style={{color:"blue"}}>{value}</a>
+      <a className={styles.buttonAnchor}>{value}</a>
     </Link>
   )
 
