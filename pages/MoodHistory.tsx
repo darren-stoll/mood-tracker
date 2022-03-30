@@ -55,6 +55,19 @@ const MoodListEntry:FC<MoodProps> = ({time, mood, comment}) => {
 }
 
 const MoodHistory = () => {
+
+  const ISSERVER = typeof window === "undefined";
+  if (ISSERVER) {
+    return (
+      <div className="container">
+        <main className="main">
+          Nothing to see here. Return home.
+        </main>
+        <Footer />
+      </div>
+    )
+  }
+
   const moods = allStorage();
 
   return (
@@ -69,6 +82,8 @@ const MoodHistory = () => {
       <Footer />
     </div>
   )
+  
+
 }
 
 export default MoodHistory
