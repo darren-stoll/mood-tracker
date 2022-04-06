@@ -1,4 +1,4 @@
-import styles from '../styles/MoodEntry.module.css'
+import styles from '../styles/mood_entry.module.css'
 import { Footer } from '../components/Footer'
 import React, { Dispatch, SetStateAction, useState, FC } from 'react'
 import Router from 'next/router'
