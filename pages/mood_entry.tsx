@@ -39,7 +39,7 @@ const MoodEntry = () => {
               <EmojiButton value="😠" setMood={setMood} currentValue={mood} />
             </div>
             <div className={styles.commentBox}>
-              <textarea placeholder="Reason/Cause" onChange={e => setComment(e.target.value)}></textarea>
+              <textarea placeholder="Reason/Cause" onChange={e => setComment(e.target.value)}/>
             </div>
             <input className={styles.submitAnchor} type='submit' value='SUBMIT' />
           </div>
