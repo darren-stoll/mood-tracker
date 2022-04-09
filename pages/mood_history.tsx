@@ -1,4 +1,4 @@
-import styles from '../styles/MoodHistory.module.css'
+import styles from '../styles/mood_history.module.css'
 import { Footer } from '../components/Footer'
 import { FC } from 'react'
 import { format, compareDesc } from 'date-fns'
