@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.emoji:hover {
+  background: lightblue;
+}
+
 .clickedEmoji {
   padding: 10px;
   font-size: 24pt;
@@ -57,4 +61,8 @@
 
 .errorField {
   color: red;
+}
+
+.selected {
+  background: #1cb2f5;
 }
