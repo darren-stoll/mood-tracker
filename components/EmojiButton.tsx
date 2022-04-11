@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction } from "react"
 import { classNames } from "../helpers/classNames"
-import styles from "../styles/MoodEntry.module.css"
+import styles from "../styles/mood_entry.module.css"
 
 type EmojiButtonProps = {
   value: string

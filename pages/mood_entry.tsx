@@ -2,7 +2,7 @@ import Router from "next/router"
 import React, { useState } from "react"
 import { EmojiButton } from "../components/EmojiButton"
 import { Footer } from "../components/Footer"
-import styles from "../styles/MoodEntry.module.css"
+import styles from "../styles/mood_entry.module.css"
 
 const MoodEntry = () => {
   // State that holds selected mood
