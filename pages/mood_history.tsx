@@ -74,7 +74,9 @@ const MoodHistory = () => {
     <div className="container">
       <main className="main">
         <div className="entries">
-          {moods.map(m => (
+          {moods.length == 0 
+            ? <div>No entries here yet! Go back and click on New Entry to start!</div> : 
+          moods.map(m => (
             <MoodListEntry key={m.time} time={m.time} mood={m.mood} comment={m.comment} />
           ))}
         </div>
